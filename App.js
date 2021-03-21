@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import Providers from './navigation';
+import "react-native-get-random-values";
+import Providers from "./navigation";
 
 export default function App() {
   return <Providers />;
