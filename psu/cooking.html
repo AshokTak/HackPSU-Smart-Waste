@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="ask.css">
+    </head>
+    <body>
+        <h2>Step 1:</h2>
+        <h1 ><i>Cooking</i></h1>
+        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<p><img id="output" width="200" /></p>
+       
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
+    <a href="date.html" class="button">Next<i class="icon-chevron-right"></i></a>
+         
+    </body>
+</html>
