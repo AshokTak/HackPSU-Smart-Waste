@@ -1,0 +1,421 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 12px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(212, 157, 85, 0.9) 0%, rgba(184, 56, 5, 0.9) 100%), #364b49;
+
+}
+
+
+h1 {
+    color: rgb(142, 192, 226);
+    font-size: 80px;
+
+    letter-spacing: -0.036em;
+    text-align: left;
+}
+
+h2 {
+    color: rgb(142, 192, 226);
+    font-size: 30px;
+
+    letter-spacing: -0.036em;
+    text-align: left;
+}
+
+p {
+    color: rgb(142, 192, 226);
+    font-size: 20px;
+
+    letter-spacing: -0.036em;
+    text-align: left;
+
+}
+
+.btn {
+    cursor: pointer;
+    border: 1px solid rgb(79, 137, 175);
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: rgb(79, 137, 175);
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    text-align: left;
+}
+
+.wrapper {
+    position: relative;
+    flex: 0 0 auto;
+    padding: 53.3807829181px 16px;
+    background: #222;
+    border-radius: 20px;
+    box-shadow: 0 7px 0 0 #555;
+}
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: #777;
+    z-index: 1;
+    top: 6%;
+    left: 50%;
+    width: 30%;
+    height: 1%;
+    border-radius: 500px;
+}
+
+.wrapper:after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, 50%);
+    bottom: 6%;
+    left: 50%;
+    width: 10%;
+    height: 5%;
+    border-radius: 500px;
+    border: 4px solid #666;
+}
+
+.app {
+    position: relative;
+    background: #fff;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 355.871886121px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.nav .nav-bar {
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    z-index: 3;
+}
+
+.nav .logo {
+    flex: 1 1 100%;
+}
+
+.nav .nav-btn {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    flex: 0;
+    padding: 5px;
+}
+
+.nav .nav-btn .btn-bar {
+    position: relative;
+    width: 1.34em;
+    height: 3px;
+    border-radius: 5px;
+    background: #444;
+}
+
+.nav .nav-btn .btn-bar.menu:not(:first-child) {
+    margin-top: 3px;
+}
+
+.nav .nav-btn .btn-bar.close {
+    transform-origin: center center;
+    position: absolute;
+    margin-top: -1.5px;
+    opacity: 0;
+    top: 50%;
+}
+
+.nav .nav-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.nav .nav-content .background {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+}
+
+.nav .nav-content .portion {
+    background: #ecc496;
+}
+
+.nav .nav-content .portion:not(:first-child) {
+    margin-top: -1px;
+}
+
+.nav.open .nav-bar .nav-btn .btn-bar.menu {
+    opacity: 0;
+}
+
+.nav.open .nav-bar .nav-btn .btn-bar.close {
+    opacity: 1;
+}
+
+.wrapper:nth-child(1) .app .nav {
+    /*///////////////////////////////////
+  // Region: Nav Animations 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Initial (Closed) States 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Expanded (Open) States 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Transition -> Menu Opening   
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Transition -> Menu Closing   
+  ///////////////////////////////////*/
+}
+
+.wrapper:nth-child(1) .app .nav .btn-bar.menu:nth-child(even) {
+    width: 1.8em;
+}
+
+.wrapper:nth-child(1) .app .nav .btn-bar.close:not(:last-child) {
+    transform: rotate(45deg) translateX(-250%);
+}
+
+.wrapper:nth-child(1) .app .nav .btn-bar.close:last-child {
+    transform: rotate(-45deg) translateX(250%);
+}
+
+.wrapper:nth-child(1) .app .nav .nav-content .background .portion {
+    flex: 1 1 100%;
+}
+
+.wrapper:nth-child(1) .app .nav .nav-content .background .portion:nth-child(odd) {
+    transform: translateX(-100%);
+}
+
+.wrapper:nth-child(1) .app .nav .nav-content .background .portion:nth-child(even) {
+    transform: translateX(100%);
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-btn .btn-bar.menu:nth-child(odd) {
+    transform: translateX(-400%);
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-btn .btn-bar.menu:nth-child(even) {
+    transform: translateX(200%);
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-btn .btn-bar.close:not(:last-child) {
+    transform: rotate(45deg);
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-btn .btn-bar.close:last-child {
+    transform: rotate(-45deg);
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-content {
+    z-index: 1;
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-content .background .portion {
+    transform: translateX(0%);
+}
+
+.wrapper:nth-child(1) .app .nav.open .btn-bar.menu {
+    transition: transform 0.3s ease-in-out, opacity 0.15s ease-in-out 0.15s;
+}
+
+.wrapper:nth-child(1) .app .nav.open .btn-bar.close {
+    transition: transform 0.2s ease-in-out 0.3s, opacity 0.05s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-content {
+    transition: z-index 0.01s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(1) .app .nav.open .nav-content .background .portion {
+    transition: transform 0.2s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(1) .app .nav .btn-bar.menu {
+    transition: transform 0.3s ease-in-out 0.2s, opacity 0.15s ease-in-out 0.2s;
+}
+
+.wrapper:nth-child(1) .app .nav .btn-bar.close {
+    transition: transform 0.2s ease-in-out, opacity 0.05s ease-in-out 0.2s;
+}
+
+.wrapper:nth-child(1) .app .nav .nav-content {
+    transition: z-index 0.01s ease-in-out 0.2s;
+}
+
+.wrapper:nth-child(1) .app .nav .nav-content .background .portion {
+    transition: transform 0.2s ease-in-out;
+}
+
+.wrapper:nth-child(2) .app .nav {
+    /*///////////////////////////////////
+  // Region: Nav Animations 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Initial (Closed) States 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Expanded (Open) States 
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Transition -> Menu Opening   
+  ///////////////////////////////////*/
+    /*///////////////////////////////////
+  // Region: Transition -> Menu Closing   
+  ///////////////////////////////////*/
+}
+
+.wrapper:nth-child(2) .app .nav .nav-btn {
+    align-items: flex-end;
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.menu:nth-child(1) {
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    width: 1.8em;
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.menu:nth-child(2) {
+    transform: rotate(-45deg) translate(0, -4px);
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.menu:nth-child(3) {
+    transform: rotate(-45deg) translate(0, 1px);
+    width: 0.8em;
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.close:not(:last-child) {
+    transform: rotate(45deg) translateX(-250%);
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.close:last-child {
+    transform: rotate(-45deg) translateX(250%);
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content .background {
+    transform-origin: center;
+    transform: rotate(-45deg) scale(2, 1.2);
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content .background .portion {
+    flex: 1 1 100%;
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content .background .portion:nth-child(odd) {
+    transform: translateX(-100%);
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content .background .portion:nth-child(even) {
+    transform: translateX(100%);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-btn .btn-bar:nth-child(1) {
+    transform: rotate(-45deg) translateX(-400%);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-btn .btn-bar:nth-child(2) {
+    transform: rotate(-45deg) translate(0, -4px) translateX(200%);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-btn .btn-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(0, 1px) translateX(200%);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-btn .btn-bar.close:not(:last-child) {
+    transform: rotate(45deg);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-btn .btn-bar.close:last-child {
+    transform: rotate(-45deg);
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-content {
+    z-index: 1;
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-content .background .portion {
+    transform: translateX(0%);
+}
+
+.wrapper:nth-child(2) .app .nav.open .btn-bar.menu {
+    transition: transform 0.3s ease-in-out, opacity 0.15s ease-in-out 0.15s;
+}
+
+.wrapper:nth-child(2) .app .nav.open .btn-bar.close {
+    transition: transform 0.5s ease-in-out 0.3s, opacity 0.125s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-content {
+    transition: z-index 0.01s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(2) .app .nav.open .nav-content .background .portion {
+    transition: transform 0.5s ease-in-out 0.3s;
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.menu {
+    transition: transform 0.3s ease-in-out 0.5s, opacity 0.15s ease-in-out 0.5s;
+}
+
+.wrapper:nth-child(2) .app .nav .btn-bar.close {
+    transition: transform 0.5s ease-in-out, opacity 0.125s ease-in-out 0.5s;
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content {
+    transition: z-index 0.01s ease-in-out 0.5s;
+}
+
+.wrapper:nth-child(2) .app .nav .nav-content .background .portion {
+    transition: transform 0.5s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    vertical-align: baseline;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
