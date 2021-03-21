@@ -5,5 +5,9 @@ export const uploadImage = async (uri, imageName) => {
   const blob = await response.blob();
 
   const ref = firebase.storage().ref().child(`images/${imageName}`);
-  return ref.put(blob);
+  await ref.put(blob);
+
+  blob.close();
+
+  return await ref.getDownloadURL();
 };

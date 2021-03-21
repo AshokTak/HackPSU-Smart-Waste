@@ -1,20 +1,28 @@
 import React from "react";
 
-import * as firebase from "firebase";
-import { View, StyleSheet, Button, Text, Image } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Button,
+  Text,
+  Image,
+  View,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { v4 as uuidv4 } from "uuid";
 
 import useStatusBar from "../hooks/useStatusBar";
 import { logout } from "../components/Firebase/firebase";
 import { uploadImage } from "../utils/uploadImage";
+import { getImageClassification } from "../utils/getImageClassification";
 
 export default function HomeScreen() {
   useStatusBar("dark-content");
 
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
-  const [resultUri, setResultUri] = React.useState(null);
+  const [resultUrl, setResultUrl] = React.useState(null);
+  const [result, setResult] = React.useState([]);
 
   async function handleSignOut() {
     try {
@@ -36,17 +44,14 @@ export default function HomeScreen() {
         setLoading(true);
 
         const id = uuidv4();
-        await uploadImage(result.uri, id);
+        const imageUrl = await uploadImage(result.uri, id);
 
-        const imageUrl = await firebase
-          .storage()
-          .ref()
-          .child(`images/${id}`)
-          .getDownloadURL();
+        setResultUrl(imageUrl);
 
-        console.log(imageUrl);
+        const classificationResult = await getImageClassification(imageUrl);
+        console.log(_modifyVisionJSON(classificationResult));
 
-        setResultUri(imageUrl);
+        setResult(_modifyVisionJSON(classificationResult));
       } catch (error) {
         setError(error);
       }
@@ -55,26 +60,33 @@ export default function HomeScreen() {
     setLoading(false);
   }
 
-  return (
-    <View style={styles.container}>
-      <Button title="Sign Out" onPress={handleSignOut} />
-      <Button
-        style={styles.uploadButton}
-        title="Upload an Image"
-        onPress={handleImageUpload}
-      />
+  function _modifyVisionJSON(resultJSONObject) {
+    return resultJSONObject.responses[0].labelAnnotations;
+  }
 
-      {loading && <Text>Uploading</Text>}
-      {error && <Text style={styles.errorText}>{error}</Text>}
-      {resultUri != null && (
-        <Image
-          style={styles.imageStyle}
-          source={{
-            uri: resultUri,
-          }}
+  return (
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Button title="Sign Out" onPress={handleSignOut} />
+        <Button
+          style={styles.uploadButton}
+          title="Upload an Image"
+          onPress={handleImageUpload}
         />
-      )}
-    </View>
+
+        {loading && <Text>Uploading</Text>}
+        {error && <Text style={styles.errorText}>{error}</Text>}
+        {resultUrl != null && (
+          <Image
+            style={styles.imageStyle}
+            source={{
+              uri: resultUrl,
+            }}
+          />
+        )}
+        {result && <Text>{JSON.stringify(result, null, 4)}</Text>}
+      </View>
+    </ScrollView>
   );
 }
 
